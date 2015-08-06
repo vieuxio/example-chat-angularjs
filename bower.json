@@ -1,0 +1,16 @@
+{
+  "name": "vieux-chat-angular",
+  "version": "0.0.0",
+  "authors": [
+    "Murat Çorlu <muratcorlu@gmail.com>"
+  ],
+  "description": "Example AngularJS chat app for vieux",
+  "keywords": [
+    "vieux"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/vieuxjs",
+  "dependencies": {
+    "angular": "~1.4.3"
+  }
+}
