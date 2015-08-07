@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('ChatUnion')
     .factory('ThreadStereotype', function(UserStereotype) {
         var ThreadStereotype = function (thread) {

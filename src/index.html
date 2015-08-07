@@ -10,7 +10,11 @@
 
     <link rel="stylesheet" type="text/css" href="ChatUnion/Root/Root.css">
     <link rel="stylesheet" type="text/css" href="ChatUnion/MotherPane/MotherPane.css">
+    <link rel="stylesheet" type="text/css" href="ChatUnion/Menu/Menu.css">
     <link rel="stylesheet" type="text/css" href="ChatUnion/ChatPane/ChatPane.css">
+    <link rel="stylesheet" type="text/css" href="ChatUnion/ThreadsPopover/ThreadsPopover.css">
+    <link rel="stylesheet" type="text/css" href="ChatUnion/ThreadList/ThreadList.css">
+    <link rel="stylesheet" type="text/css" href="ChatUnion/ThreadPreview/ThreadPreview.css">
     <!-- endbuild -->
 </head>
 <body>
@@ -19,13 +23,20 @@
 
 <!-- build:js(.) scripts/vendor.js -->
 <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-mocks/angular-mocks.js"></script>
 <!-- endbuild -->
 
 <!-- build:js({.tmp,src}) scripts/app.js -->
 <script src="ChatUnion/ChatUnion.js"></script>
 
+<script src="ChatUnion/EventEmitter.js"></script>
+
 <script src="ChatUnion/ChatRegime.js"></script>
 <script src="ChatUnion/ChatUndertaker.js"></script>
+<script src="ChatUnion/UserStereotype.js"></script>
+<script src="ChatUnion/ThreadStereotype.js"></script>
+
+<script src="ChatUnion/MockBackend.js"></script>
 
 <script src="ChatUnion/Root/RootCulture.js"></script>
 <script src="ChatUnion/Root/RootRep.js"></script>
@@ -33,11 +44,17 @@
 <script src="ChatUnion/MotherPane/MotherPaneCulture.js"></script>
 <script src="ChatUnion/MotherPane/MotherPaneRep.js"></script>
 
+<script src="ChatUnion/Menu/MenuCulture.js"></script>
+<script src="ChatUnion/Menu/MenuRep.js"></script>
+
 <script src="ChatUnion/ThreadList/ThreadListCulture.js"></script>
 <script src="ChatUnion/ThreadList/ThreadListRep.js"></script>
 
 <script src="ChatUnion/ThreadPreview/ThreadPreviewCulture.js"></script>
 <script src="ChatUnion/ThreadPreview/ThreadPreviewRep.js"></script>
+
+<script src="ChatUnion/ThreadsPopover/ThreadsPopoverCulture.js"></script>
+<script src="ChatUnion/ThreadsPopover/ThreadsPopoverRep.js"></script>
 
 <script src="ChatUnion/ChatPane/ChatPaneCulture.js"></script>
 <script src="ChatUnion/ChatPane/ChatPaneRep.js"></script>

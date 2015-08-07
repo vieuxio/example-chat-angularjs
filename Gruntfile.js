@@ -66,7 +66,7 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 1971,
+        port: 1972,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
         livereload: 35729
@@ -75,9 +75,6 @@ module.exports = function (grunt) {
         options: {
           open: true,
           middleware: function (connect) {
-            var url = require('url');
-            var proxy = require('proxy-middleware');
-
             return [
               connect.static('.tmp'),
               connect().use(
@@ -299,7 +296,6 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'concurrent:server',
-      'uglify',
       'connect:livereload',
       'watch'
     ]);
@@ -312,9 +308,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'wiredep',
     'concurrent:test',
-    'autoprefixer',
     'connect:test',
     'karma'
   ]);

@@ -1,5 +1,5 @@
-<img ng-src="rep.user.picture.thumbnail">
+<img ng-src="{{ threadPreview.threadData.user.picture.thumbnail }}">
 <span>
-    <strong ng-bind="rep.user.getFullName()"></strong><br/>
-    <last-message name="rep.lastMessage"></last-message>
+    <strong ng-bind="threadPreview.threadData.user.getFullName()"></strong><br/>
+    <last-message ng-bind="threadPreview.lastMessage"></last-message>
 </span>

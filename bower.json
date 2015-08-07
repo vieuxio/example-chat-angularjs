@@ -11,6 +11,7 @@
   "license": "MIT",
   "homepage": "https://github.com/vieuxjs",
   "dependencies": {
-    "angular": "~1.4.3"
+    "angular": "~1.4.3",
+    "angular-mocks": "~1.4.3"
   }
 }

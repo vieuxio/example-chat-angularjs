@@ -1,3 +1,0 @@
-angular.controller('ChatBoxRepresantative', function () {
-
-});
