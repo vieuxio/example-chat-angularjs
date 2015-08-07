@@ -2,6 +2,7 @@
 
 // FIXME: This is not related to Chat Union. It should move a seperate Union
 angular.module('ChatUnion')
+    // EventEmitter: Derived from http://notes.jetienne.com/2011/03/22/microeventjs.html
     .factory('EventEmitter', function () {
         var _events = {};
 
