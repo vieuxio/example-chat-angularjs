@@ -23,4 +23,8 @@ angular.module('ChatUnion')
 
             this.trigger('ACTIVE_THREAD_CHANGED');
         };
+
+        this.getActiveThred = function () {
+            return activeThread;
+        };
     });

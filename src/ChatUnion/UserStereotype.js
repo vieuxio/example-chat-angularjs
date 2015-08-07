@@ -13,7 +13,6 @@ angular.module('ChatUnion')
         }
 
         UserStereotype.prototype.getFullName = function() {
-            console.log(this);
             return capitalize(this.name.first) + ' ' + capitalize(this.name.last);
         };
 
