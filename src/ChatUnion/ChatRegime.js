@@ -81,6 +81,14 @@ angular.module('ChatUnion')
             }, 1000);
         };
 
+        self.owner = {};
+        var getOwner = function () {
+            ChatUndertaker.getOwner().then(function (response) {
+                self.owner = response.data;
+            });
+        };
+
+        getOwner();
         getThreads();
         setupUpdates();
     });

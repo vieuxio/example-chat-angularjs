@@ -997,6 +997,38 @@ angular.module('ChatUnion')
             }
         ];
 
+        var owner = {
+            gender: "female",
+            name: {
+                title: "miss",
+                first: "ana",
+                last: "garnier"
+            },
+            location: {
+                street: "3206 boulevard de balmont",
+                city: "vitry-sur-seine",
+                state: "alpes-maritimes",
+                zip: 98343
+            },
+            email: "ana.garnier@example.com",
+            username: "reddog185",
+            password: "secure",
+            salt: "jwNyQ4TG",
+            md5: "e2f4b9098b0c4f6b0908e66e590f3b15",
+            sha1: "b9f029fd3e890b393013b271804ea176ff3c9dae",
+            sha256: "72532e6bea29be4408f448d9eca5781d44372e15e219aa33af267590945a67f1",
+            registered: 1362279457,
+            dob: 1271022321,
+            phone: "04-75-09-99-12",
+            cell: "06-99-42-16-31",
+            INSEE: "2100406109776 32",
+            picture: {
+                large: "https://randomuser.me/api/portraits/women/82.jpg",
+                medium: "https://randomuser.me/api/portraits/med/women/82.jpg",
+                thumbnail: "https://randomuser.me/api/portraits/thumb/women/82.jpg"
+            }
+        };
+
         var allMessages = 'How promotion excellent curiosity yet attempted happiness. Gay prosperous impression had conviction. For every delay death ask style. Me mean able my by in they. Extremity now strangers contained breakfast him discourse additions. Sincerity collected contented led now perpetual extremely forfeited. Living valley had silent eat merits esteem bed. In last an or went wise as left. Visited civilly am demesne so colonel he calling. So unreserved do interested increasing sentiments. Vanity day giving points within six not law. Few impression difficulty his use has comparison decisively. Next his only boy meet the fat rose when. Do repair at we misery wanted remove remain income. Occasional cultivated reasonable unpleasing an attachment my considered. Having ask and coming object seemed put did admire figure. Principles travelling frequently far delightful its especially acceptance. Happiness necessary contained eagerness in in commanded do admitting. Favourable continuing difficulty had her solicitude far. Nor doubt off widow all death aware offer. We will up able in both do sing. Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew. Exquisite excellent son gentleman acuteness her. Do is voice total power mr ye might round still. In it except to so temper mutual tastes mother. Interested cultivated its continuing now yet are. Out interested acceptance our partiality affronting unpleasant why add. Esteem garden men yet shy course. Consulted up my tolerably sometimes perpetual oh. Expression acceptance imprudence particular had eat unsatiable. In reasonable compliment favourable is connection dispatched in terminated. Do esteem object we called father excuse remove. So dear real on like more it. Laughing for two families addition expenses surprise the. If sincerity he to curiosity arranging. Learn taken terms be as. Scarcely mrs produced too removing new old. An sincerity so extremity he additions. Her yet there truth merit. Mrs all projecting favourable now unpleasing. Son law garden chatty temper. Oh children provided to mr elegance marriage strongly. Off can admiration prosperous now devonshire diminution law. Her extensive perceived may any sincerity extremity. Indeed add rather may pretty see. Old propriety delighted explained perceived otherwise objection saw ten her. Doubt merit sir the right these alone keeps. By sometimes intention smallness he northward. Consisted we otherwise arranging commanded discovery it explained. Does cold even song like two yet been. Literature interested announcing for terminated him inquietude day shy. Himself he fertile chicken perhaps waiting if highest no it. Continued promotion has consulted fat improving not way. Agreed joy vanity regret met may ladies oppose who. Mile fail as left as hard eyes. Meet made call in mean four year it to. Prospect so branched wondered sensible of up. For gay consisted resolving pronounce sportsman saw discovery not. Northward or household as conveying we earnestly believing. No in up contrasted discretion inhabiting excellence. Entreaties we collecting unpleasant at everything conviction. Seen you eyes son show. Far two unaffected one alteration apartments celebrated but middletons interested. Described deficient applauded consisted my me do. Passed edward two talent effect seemed engage six. On ye great do child sorry lived. Proceed cottage far letters ashamed get clothes day. Stairs regret at if matter to. On as needed almost at basket remain. By improved sensible servants children striking in surprise.';
         var messages = allMessages.split('. ');
         var updates = [];
@@ -1036,5 +1068,7 @@ angular.module('ChatUnion')
         $httpBackend.whenGET('/api/threads').respond(threads);
 
         $httpBackend.whenGET('/api/updates').respond(updates);
+
+        $httpBackend.whenGET('/api/owner').respond(owner);
 
     });

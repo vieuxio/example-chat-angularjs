@@ -11,4 +11,7 @@ angular.module('ChatUnion')
             return $http.get('/api/updates');
         };
 
+        this.getOwner = function () {
+            return $http.get('/api/owner');
+        };
     });
