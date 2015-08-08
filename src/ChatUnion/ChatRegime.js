@@ -1,30 +1,86 @@
 'use strict';
 
 angular.module('ChatUnion')
-    .service('ChatRegime', function (ChatUndertaker, ThreadStereotype, EventEmitter) {
-        var activeThread;
+    .service('ChatRegime', function (ChatUndertaker, ThreadStereotype, EventEmitter, $timeout) {
+        var activeThread,
+            self = this;
 
-        angular.extend(this, EventEmitter);
-
-        this.getThreads = function () {
-            return ChatUndertaker.getThreads().then(function (response) {
-                var threads = response.data;
-
-                threads.map(function (thread) {
-                    return new ThreadStereotype(thread);
-                });
-
-                return threads;
-            });
+        self.EventType = {
+            INITIAL_DATA: 'initial data',
+            SET_ACTIVE_THREAD: 'set active thread',
+            UPDATE: 'update'
         };
 
-        this.setActiveThread = function (thread) {
+        angular.extend(self, new EventEmitter());
+
+        var threads = [];
+
+        var onInitialData = function (response) {
+            threads = response.data;
+
+            threads.map(function (thread) {
+                return new ThreadStereotype(thread);
+            });
+
+            activeThread = threads[0];
+
+            self.trigger(self.EventType.INITIAL_DATA, threads);
+        };
+
+        var getThreads = function () {
+            return ChatUndertaker.getThreads().then(onInitialData);
+        };
+
+        self.setActiveThread = function (thread) {
             activeThread = thread;
 
-            this.trigger('ACTIVE_THREAD_CHANGED');
+            self.trigger(self.EventType.SET_ACTIVE_THREAD);
         };
 
-        this.getActiveThred = function () {
+        self.getActiveThread = function () {
             return activeThread;
         };
+
+        self.getUnreadCount = function() {
+            return threads.filter(function(thread) {
+                return thread.unread;
+            }).length;
+        };
+
+        self.getThreadById = function (id) {
+            return threads.filter(function(thread) {
+                return thread.id === id;
+            })[0];
+        };
+
+        var onUpdate = function (updates) {
+            updates.forEach(function (update) {
+                var correspondingThread = self.getThreadById(update.thread.id);
+
+                if (!correspondingThread) {
+                    return;
+                }
+
+                correspondingThread.messages.push(update.thread.messages.slice(correspondingThread.messages.length));
+
+                correspondingThread.unread = (update.thread.id !== activeThread.id);
+            });
+
+            self.trigger(self.EventType.UPDATE, updates);
+
+            setupUpdates();
+        };
+
+        var setupUpdates = function () {
+            $timeout(function () {
+                ChatUndertaker.getUpdates().then(function (response) {
+                    var updates = response.data;
+
+                    onUpdate(updates);
+                });
+            }, 1000);
+        };
+
+        getThreads();
+        setupUpdates();
     });

@@ -1,6 +1,6 @@
 angular.module('ChatUnion')
     .controller('ThreadPreviewRepresentative', function (ChatRegime, EventEmitter) {
-        angular.extend(this, EventEmitter);
+        angular.extend(this, new EventEmitter());
 
         var self = this;
 
@@ -10,13 +10,19 @@ angular.module('ChatUnion')
             ChatRegime.setActiveThread(self.threadData);
         };
 
-        ChatRegime.bind('ACTIVE_THREAD_CHANGED', function () {
+        ChatRegime.bind(ChatRegime.EventType.SET_ACTIVE_THREAD, function () {
             var activeThread = ChatRegime.getActiveThread();
 
-            if (activeThread.id == self.threadData.id) {
-                self.trigger('THREAD_ACTIVATED');
-            } else {
-                self.trigger('THREAD_DEACTIVATED');
-            }
+            self.threadData.active = (activeThread.id == self.threadData.id);
+        });
+
+        ChatRegime.bind(ChatRegime.EventType.UPDATE, function (updates) {
+            updates.some(function(update) {
+                if (update.thread.id != self.threadData.id) return;
+
+                self.lastMessage = self.threadData.messages.slice(-1);
+
+                return true;
+            });
         });
     });

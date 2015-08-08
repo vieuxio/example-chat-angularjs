@@ -7,4 +7,8 @@ angular.module('ChatUnion')
             return $http.get('/api/threads');
         };
 
+        this.getUpdates = function () {
+            return $http.get('/api/updates');
+        };
+
     });
