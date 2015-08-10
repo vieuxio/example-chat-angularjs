@@ -1,7 +1,7 @@
 <img ng-src="{{ chatPane.user.picture.thumbnail }}">
 <username><strong ng-bind="chatPane.user.getFullName()"></strong></username>
 <messages>
-    <message ng-repeat="message in chatPane.thread.messages" ng-bind="message"></message>
+    <message ng-repeat="message in chatPane.thread.messages track by $index" ng-bind="message"></message>
 </messages>
 <entry>
     <img ng-src="{{ chatPane.owner.picture.thumbnail }}">
