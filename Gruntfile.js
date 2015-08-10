@@ -260,7 +260,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            '{,*/}*.html'
+            '**/*.html'
           ]
         }]
       },
