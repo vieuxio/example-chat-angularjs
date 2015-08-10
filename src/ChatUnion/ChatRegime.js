@@ -18,7 +18,7 @@ angular.module('ChatUnion')
         var onInitialData = function (response) {
             threads = response.data;
 
-            threads.map(function (thread) {
+            threads = threads.map(function (thread) {
                 return new ThreadStereotype(thread);
             });
 
