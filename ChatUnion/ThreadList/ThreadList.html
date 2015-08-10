@@ -1,0 +1,6 @@
+<thread-preview
+    ng-repeat="thread in threadList.threads"
+    thread-data="thread"
+    ng-click="threadPreview.setActiveThread()"
+    ng-class="{active: threadPreview.threadData.active, unread: threadPreview.threadData.unread}">
+</thread-preview>

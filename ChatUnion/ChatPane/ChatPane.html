@@ -1,0 +1,9 @@
+<img ng-src="{{ chatPane.user.picture.thumbnail }}">
+<username><strong ng-bind="chatPane.user.getFullName()"></strong></username>
+<messages>
+    <message ng-repeat="message in chatPane.thread.messages" ng-bind="message"></message>
+</messages>
+<entry>
+    <img ng-src="{{ chatPane.owner.picture.thumbnail }}">
+    <reply>This demo is for demonstrating unread threads synchronisation, so we left message typing out for the sake of brevity.</reply>
+</entry>
