@@ -20,7 +20,7 @@ angular.module('ChatUnion')
             updates.some(function(update) {
                 if (update.thread.id != self.threadData.id) return;
 
-                self.lastMessage = self.threadData.messages.slice(-1);
+                self.lastMessage = update.thread.messages.slice(-1);
 
                 return true;
             });
