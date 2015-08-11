@@ -1046,7 +1046,10 @@ angular.module('ChatUnion')
         setInterval(randomUpdate, 2000);
 
         function getRandomMessage() {
-            return messages[Math.floor(Math.random() * messages.length)];
+            return {
+                message: messages[Math.floor(Math.random() * messages.length)],
+                date: new Date()
+            };
         }
 
 

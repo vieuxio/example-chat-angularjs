@@ -4,7 +4,7 @@ angular.module('ChatUnion')
 
         var self = this;
 
-        self.lastMessage = self.threadData.messages.slice(-1);
+        self.threadData.lastMessage = self.threadData.messages.slice(-1)[0];
 
         self.setActiveThread = function () {
             ChatRegime.setActiveThread(self.threadData);
@@ -20,7 +20,7 @@ angular.module('ChatUnion')
             updates.some(function(update) {
                 if (update.thread.id != self.threadData.id) return;
 
-                self.lastMessage = update.thread.messages.slice(-1);
+                self.threadData.lastMessage = update.thread.messages.slice(-1)[0];
 
                 return true;
             });

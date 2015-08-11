@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('ChatUnion')
-    .service('ChatRegime', function (ChatUndertaker, ThreadStereotype, EventEmitter, $timeout) {
+    .service('ChatRegime', function (ChatUndertaker, ThreadStereotype, EventEmitter, $timeout, $q) {
         var activeThread,
-            self = this;
+            self = this,
+            threadDeferred = $q.defer();
+
+        self.threads = threadDeferred.promise;
 
         self.EventType = {
-            INITIAL_DATA: 'initial data',
             SET_ACTIVE_THREAD: 'set active thread',
             UPDATE: 'update'
         };
@@ -24,7 +26,7 @@ angular.module('ChatUnion')
 
             activeThread = threads[0];
 
-            self.trigger(self.EventType.INITIAL_DATA, threads);
+            threadDeferred.resolve(threads);
         };
 
         var getThreads = function () {
@@ -32,7 +34,8 @@ angular.module('ChatUnion')
         };
 
         self.setActiveThread = function (thread) {
-            activeThread = thread;
+            activeThread = self.getThreadById(thread.id);
+            activeThread.unread = false;
 
             self.trigger(self.EventType.SET_ACTIVE_THREAD);
         };
@@ -81,14 +84,13 @@ angular.module('ChatUnion')
             }, 1000);
         };
 
-        self.owner = {};
-        var getOwner = function () {
-            ChatUndertaker.getOwner().then(function (response) {
-                self.owner = response.data;
-            });
-        };
+        var ownerDeferred = $q.defer();
 
-        getOwner();
+        self.owner = ownerDeferred.promise;
+        ChatUndertaker.getOwner().then(function (response) {
+            ownerDeferred.resolve(response.data);
+        });
+
         getThreads();
         setupUpdates();
     });
