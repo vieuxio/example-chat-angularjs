@@ -1,6 +1,6 @@
 <thread-preview
     ng-repeat="thread in threadList.threads | orderBy:'lastMessage.date':true"
     thread-data="thread"
-    ng-click="threadPreview.setActiveThread()"
+    ng-click="threadList.threadClick({thread: thread})"
     ng-class="{active: threadPreview.threadData.active, unread: threadPreview.threadData.unread}">
 </thread-preview>

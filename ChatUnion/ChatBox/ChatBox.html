@@ -1,0 +1,9 @@
+<header>
+    <img ng-src="{{ chatBox.threadData.user.picture.thumbnail }}">
+    <strong ng-bind="chatBox.threadData.user.getFullName()"></strong>
+    <close ng-click="chatBox.close()">✖</close>
+    <minimize ng-click="chatBox.toggle()"></minimize>
+</header>
+<content>
+    <chat-pane thread-id="{{ chatBox.threadData.id }}"></chat-pane>
+</content>

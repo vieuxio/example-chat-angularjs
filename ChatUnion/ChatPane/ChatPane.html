@@ -1,9 +1,11 @@
-<img ng-src="{{ chatPane.user.picture.thumbnail }}" ng-if="chatPane.user" alt="">
-<username ng-if="chatPane.user"><strong ng-bind="chatPane.user.getFullName()"></strong></username>
-<messages ng-if="chatPane.thread">
-    <message ng-repeat="message in chatPane.thread.messages track by $index" ng-bind="message.message"></message>
-</messages>
+<thread>
+    <img ng-src="{{ chatPane.user.picture.thumbnail }}" ng-if="chatPane.user" alt="">
+    <username ng-if="chatPane.user"><strong ng-bind="chatPane.user.getFullName()"></strong></username>
+    <messages ng-if="chatPane.thread">
+        <message ng-repeat="message in chatPane.thread.messages track by $index" ng-bind="message.message"></message>
+    </messages>
+</thread>
 <entry>
     <img ng-src="{{ chatPane.owner.picture.thumbnail }}">
-    <reply>This demo is for demonstrating unread threads synchronisation, so we left message typing out for the sake of brevity.</reply>
+    <input type="text" placeholder="This demo is for demonstrating unread threads synchronisation, so we left message typing out for the sake of brevity.">
 </entry>
