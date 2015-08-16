@@ -6,10 +6,6 @@ angular.module('ChatUnion')
 
         self.threadData.lastMessage = self.threadData.messages.slice(-1)[0];
 
-        self.setActiveThread = function () {
-            ChatRegime.setActiveThread(self.threadData);
-        };
-
         ChatRegime.bind(ChatRegime.EventType.SET_ACTIVE_THREAD, function () {
             var activeThread = ChatRegime.getActiveThread();
 

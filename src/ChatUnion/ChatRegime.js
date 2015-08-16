@@ -10,7 +10,11 @@ angular.module('ChatUnion')
 
         self.EventType = {
             SET_ACTIVE_THREAD: 'set active thread',
-            UPDATE: 'update'
+            UPDATE: 'update',
+            SET_ACTIVE_CHAT_BOX: 'set active chat box',
+            NEW_MESSAGE: 'new message',
+            ADD_CHAT_BOX: 'add chat box',
+            REMOVE_CHAT_BOX: 'remove chat box'
         };
 
         angular.extend(self, new EventEmitter());
@@ -42,6 +46,20 @@ angular.module('ChatUnion')
 
         self.getActiveThread = function () {
             return activeThread;
+        };
+
+        self.addChatBox = function (thread) {
+            var boxThread = self.getThreadById(thread.id);
+            boxThread.unread = false;
+
+            self.trigger(self.EventType.ADD_CHAT_BOX, boxThread);
+        };
+
+        self.removeChatBox = function (thread) {
+            var boxThread = self.getThreadById(thread.id);
+            boxThread.unread = false;
+
+            self.trigger(self.EventType.REMOVE_CHAT_BOX, boxThread);
         };
 
         self.getUnreadCount = function() {
