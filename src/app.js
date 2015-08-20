@@ -1,1 +1,1 @@
-angular.module('vchat', ['ChatUnion']);
+angular.module('vchat', ['ChatUnion', 'outerClick']);

@@ -1,3 +1,3 @@
 <h1>Chat</h1>
-<button ng-click="popoverVisible=!popoverVisible">Threads<span ng-if="menu.count"> ({{ menu.count }})</span></button>
-<threads-popover ng-class="{visible: popoverVisible}" ng-if="popoverVisible"></threads-popover>
+<button ng-click="popoverVisible=!popoverVisible" outer-click="popoverVisible=false" outer-click-exclude="popover">Threads<span ng-if="menu.count"> ({{ menu.count }})</span></button>
+<threads-popover id="popover" ng-class="{visible: popoverVisible}" ng-if="popoverVisible"></threads-popover>

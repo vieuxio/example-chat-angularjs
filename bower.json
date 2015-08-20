@@ -12,6 +12,7 @@
   "homepage": "https://github.com/vieuxjs",
   "dependencies": {
     "angular": "~1.4.3",
-    "angular-mocks": "~1.4.3"
+    "angular-mocks": "~1.4.3",
+    "angular-outer-click": "~0.1.0"
   }
 }
