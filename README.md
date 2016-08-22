@@ -1,4 +1,4 @@
-# Vieux example with AngularJS (WIP)
+# Vieux example with AngularJS
 
 This project implements an example chat application with Vieux architecture. It demonstrates how a complex, stateful application should be built.
 
@@ -6,7 +6,7 @@ This project implements an example chat application with Vieux architecture. It 
 
 ## Demo
 
-You can review a running demo on [http://vieux.io/example-chat-angularjs/](http://vieux.io/example-chat-angularjs/).
+You can review a running demo on [http://vieuxio.github.io/example-chat-angularjs/](http://vieuxio.github.io/example-chat-angularjs/).
 
 ## Install
 
